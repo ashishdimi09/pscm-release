@@ -1,0 +1,6 @@
+framework module PodSimCore {
+    umbrella header "PodSimCore.h"
+
+    export *
+    module * { export * }
+}
