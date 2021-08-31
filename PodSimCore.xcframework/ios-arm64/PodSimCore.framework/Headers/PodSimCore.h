@@ -8,7 +8,7 @@
 
 @class PSCKotlinByteArray, PSCTwiCommand, PSCTwiEventType, PSCTwiEvent, PSCKotlinEnum<E>, PSCKotlinArray<T>, PSCTwiComponentError, PSCTwiSimConnectError, PSCContextArgument, PSCLevel, PSCLogData, PSCLogger, PSCParameters, PSCSimulatedPod, PSCPodParameters, PSCPodState, PSCHypoProtectParameters, PSCValueCountPair, PSCValueResultPair, PSCAidLoopStateEnum, PSCPodUtil, PSCSharedPrefsUtil, PSCBasalParameters, PSCBasalStep, PSCBasalRunnable, PSCBolusParameters, PSCBolusState, PSCBolusRunnable, PSCRepository, PSCPscConfiguration, PSCPodControl, PSCIOSTimerTask, PSCIOSTimerTaskExecutor, PSCAlarmCode, PSCAlertType, PSCCommLossErrorEnum, PSCDisconnectionReason, PSCER48ErrorCode, PSCEgvEmulateType, PSCPodAlertsCloseLoopAlert, PSCPodAlertsOpenLoopAlert, PSCPodLotTypeEnum, PSCKotlinIntArray, PSCPodQnState, PSCProgramStatus, PSCStringFormat, PSCDatabaseDriverFactory, PSCCgmTable, PSCSimPodTable, PSCSimDataTable, PSCPodEventType, PSCBaseNudgeData, PSCPodTwiShim, PSCInsulinDeliveryServiceKMM, PSCPlatformShim, PSCPodSim, PSCProcessTwiCommand, PSCPodCommUtil, PSCAlertUtil, PSCExecutorFactory, PSCSimData, PSCCommandParser, PSCPodEvent, PSCPodStateMachine, PSCSimDataParameters, PSCReaktiveObservableWrapper<__covariant T>, PSCBlePod, PSCPodMessageQueue, PSCNudgeController, PSCStatusPageGenerator, PSCCgmUtil, PSCCgmStateEnum, PSCSimulatedCgm, PSCEgvSample, PSCCgmConditionEnum, PSCCgmAlgoStateEnum, PSCCgmTxStateEnum, PSCAlgorithmService, PSCCgmSpecialEgvEnum, PSCPodNudgeQueue, PSCProgrammedAlert, PSCKMMByteBuffer, PSCCommandName, NSData, PSCIOSByteBuffer, NSTimer, PSCKotlinShortArray, PSCBasal, PSCBolus, PSCInsulinCommand, PSCTempBasal, PSCPlatformSpecificLogger, PSCProcess, PSCDateProvider, PSCCsddHeader, PSCPreferences, PSCKotlinx_datetimeLocalDateTime, PSCDate, PSCAutoOffState, PSCAutoOffStateMachine, PSCRequestBroker, PSCAsciiPayloadParser, PSCBinaryPayloadParser, PSCNoPayloadParser, PSCBasalInitStep, PSCStep, PSCIPCommandTestForNextStep, PSCInsulinHistory, PSCPatientHistoryLog, PSCPatientHistoryLogHeader, PSCProgrammedAlertCloseLoopAlert, PSCProgrammedAlertOpenLoopAlert, PSCReservoirSim, PSCTempBasalStep, PSCKeyValueCountMap, PSCKeyCountMap, PSCKeyValueResultMap, PSCKotlinDurationUnit, PSCCommLossParameters, PSCRuntimeQuery<__covariant RowType>, PSCKotlinByteIterator, PSCKotlinIntIterator, PSCRuntimeTransacterTransaction, PSCReaktiveSubjectStatus, PSCKotlinThrowable, PSCKotlinException, PSCKotlinRuntimeException, PSCKotlinShortIterator, PSCKotlinx_datetimeMonth, PSCKotlinx_datetimeLocalDate, PSCKotlinx_datetimeDayOfWeek, PSCKotlinIllegalStateException;
 
-@protocol PSCKotlinComparable, PSCKotlinCoroutineContext, PSCKotlinx_coroutines_coreCoroutineScope, PSCRuntimeSqlDriver, PSCReaktivePublishSubject, PSCReaktiveObservable, PSCReaktiveConnectableObservable, PSCReaktiveScheduler, PSCCommandParser, PSCIAutoOffSharedPreferenceData, PSCCommandExecutor, PSCAdbCommand, PSCRuntimeTransactionWithoutReturn, PSCRuntimeTransactionWithReturn, PSCRuntimeTransacter, PSCCgmDatabaseQueries, PSCPodDatabaseQueries, PSCSimDataDatabaseQueries, PSCPodDatabase, PSCRuntimeSqlDriverSchema, PSCKotlinIterator, PSCKotlinSuspendFunction0, PSCKotlinCoroutineContextElement, PSCKotlinCoroutineContextKey, PSCRuntimeSqlPreparedStatement, PSCRuntimeSqlCursor, PSCRuntimeCloseable, PSCReaktiveObserver, PSCReaktiveSource, PSCReaktiveValueCallback, PSCReaktiveRelay, PSCReaktiveCompleteCallback, PSCReaktiveErrorCallback, PSCReaktiveCompletableCallbacks, PSCReaktiveObservableCallbacks, PSCReaktiveSubject, PSCReaktiveDisposable, PSCReaktiveConnectable, PSCReaktiveObservableObserver, PSCReaktiveSchedulerExecutor, PSCRuntimeQueryListener, PSCRuntimeTransactionCallbacks, PSCKotlinFunction;
+@protocol PSCKotlinComparable, PSCKotlinCoroutineContext, PSCKotlinx_coroutines_coreCoroutineScope, PSCRuntimeSqlDriver, PSCReaktivePublishSubject, PSCReaktiveObservable, PSCReaktiveConnectableObservable, PSCReaktiveScheduler, PSCKotlinIterator, PSCKotlinIterable, PSCCommandParser, PSCIAutoOffSharedPreferenceData, PSCCommandExecutor, PSCAdbCommand, PSCRuntimeTransactionWithoutReturn, PSCRuntimeTransactionWithReturn, PSCRuntimeTransacter, PSCCgmDatabaseQueries, PSCPodDatabaseQueries, PSCSimDataDatabaseQueries, PSCPodDatabase, PSCRuntimeSqlDriverSchema, PSCKotlinSuspendFunction0, PSCKotlinCoroutineContextElement, PSCKotlinCoroutineContextKey, PSCRuntimeSqlPreparedStatement, PSCRuntimeSqlCursor, PSCRuntimeCloseable, PSCReaktiveObserver, PSCReaktiveSource, PSCReaktiveValueCallback, PSCReaktiveRelay, PSCReaktiveCompleteCallback, PSCReaktiveErrorCallback, PSCReaktiveCompletableCallbacks, PSCReaktiveObservableCallbacks, PSCReaktiveSubject, PSCReaktiveDisposable, PSCReaktiveConnectable, PSCReaktiveObservableObserver, PSCReaktiveSchedulerExecutor, PSCRuntimeQueryListener, PSCRuntimeTransactionCallbacks, PSCKotlinFunction;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -2602,6 +2602,28 @@ __attribute__((swift_name("Logger")))
 - (void)wTag:(NSString *)tag message:(NSString *)message __attribute__((swift_name("w(tag:message:)")));
 @end;
 
+__attribute__((swift_name("KotlinIterable")))
+@protocol PSCKotlinIterable
+@required
+- (id<PSCKotlinIterator>)iterator __attribute__((swift_name("iterator()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MutableWeakList")))
+@interface PSCMutableWeakList<T> : PSCBase <PSCKotlinIterable>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)addItem:(T)item __attribute__((swift_name("add(item:)")));
+- (void)clear __attribute__((swift_name("clear()")));
+- (T _Nullable)getIndex:(int32_t)index __attribute__((swift_name("get(index:)")));
+- (BOOL)hasItem:(T)item __attribute__((swift_name("has(item:)")));
+- (int32_t)indexOfItem:(T)item __attribute__((swift_name("indexOf(item:)")));
+- (id<PSCKotlinIterator>)iterator __attribute__((swift_name("iterator()")));
+- (void)removeItem:(T)item __attribute__((swift_name("remove(item:)")));
+- (void)removeIndex:(int32_t)index __attribute__((swift_name("remove(index:)")));
+- (int32_t)size __attribute__((swift_name("size()")));
+@end;
+
 __attribute__((swift_name("PodCommUtil")))
 @interface PSCPodCommUtil : PSCBase
 - (instancetype)initWithPodControl:(PSCPodControl *)podControl podUtil:(PSCPodUtil *)podUtil logger:(PSCLogger *)logger statusPageGenerator:(PSCStatusPageGenerator *)statusPageGenerator __attribute__((swift_name("init(podControl:podUtil:logger:statusPageGenerator:)"))) __attribute__((objc_designated_initializer));
@@ -4967,6 +4989,13 @@ __attribute__((swift_name("KotlinShortArray")))
 @property (readonly) int32_t size __attribute__((swift_name("size")));
 @end;
 
+__attribute__((swift_name("KotlinIterator")))
+@protocol PSCKotlinIterator
+@required
+- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
+- (id _Nullable)next __attribute__((swift_name("next()")));
+@end;
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Kotlinx_datetimeLocalDateTime")))
 @interface PSCKotlinx_datetimeLocalDateTime : PSCBase <PSCKotlinComparable>
@@ -5045,13 +5074,6 @@ __attribute__((swift_name("RuntimeSqlDriverSchema")))
 - (void)createDriver:(id<PSCRuntimeSqlDriver>)driver __attribute__((swift_name("create(driver:)")));
 - (void)migrateDriver:(id<PSCRuntimeSqlDriver>)driver oldVersion:(int32_t)oldVersion newVersion:(int32_t)newVersion __attribute__((swift_name("migrate(driver:oldVersion:newVersion:)")));
 @property (readonly) int32_t version __attribute__((swift_name("version")));
-@end;
-
-__attribute__((swift_name("KotlinIterator")))
-@protocol PSCKotlinIterator
-@required
-- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
-- (id _Nullable)next __attribute__((swift_name("next()")));
 @end;
 
 __attribute__((swift_name("KotlinByteIterator")))
